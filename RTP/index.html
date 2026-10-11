@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Restaurant & Event Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <h1>🍽 Smart Restaurant & Event Management</h1>
+  <p class="tagline">Book • Dine • Celebrate</p>
+
+  <!-- STEP 1: Restaurant Selection -->
+  <div class="step active" id="step1">
+    <h2>Select Restaurant & Details</h2>
+    <select id="restaurant">
+      <option value="">Select Restaurant</option>
+    </select>
+    <input type="number" id="people" placeholder="Number of People">
+    <input type="date" id="date">
+    <button onclick="checkAvailability()">Next ➡</button>
+  </div>
+
+  <!-- STEP 2: Event Selection -->
+  <div class="step" id="step2">
+    <h2>Select Event</h2>
+    <div class="hall-grid"></div>
+    <div class="nav">
+      <button class="back" onclick="prev()">⬅ Back</button>
+      <button onclick="next()">Next ➡</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Seat Selection -->
+  <div class="step" id="step3">
+    <h2>Select Seats</h2>
+    <div class="seat-grid" id="seats"></div>
+    <div class="nav">
+      <button class="back" onclick="prev()">⬅ Back</button>
+      <button onclick="next()">Next ➡</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Food Categories + Items -->
+  <div class="step" id="step4">
+    <h2>Select Food Category</h2>
+    <div class="category-grid">
+      <button onclick="showFoodCategory('veg')">🥦 Veg</button>
+      <button onclick="showFoodCategory('nonveg')">🍗 Non-Veg</button>
+      <button onclick="showFoodCategory('italian')">🍝 Italian</button>
+      <button onclick="showFoodCategory('continental')">🥪 Continental</button>
+      <button onclick="showFoodCategory('desserts')">🍨 Desserts</button>
+      <button onclick="showFoodCategory('drinks')">🥤 Drinks</button>
+    </div>
+    <div id="foodGrid" class="food-grid"></div>
+    <div class="status">
+      <h3>🧾 Bill:</h3>
+      <ul id="billItems"></ul>
+      <p id="totalBill">Total: ₹0</p>
+    </div>
+    <div class="nav">
+      <button class="back" onclick="prev()">⬅ Back</button>
+      <button onclick="next()">Next ➡</button>
+    </div>
+  </div>
+
+  <!-- STEP 5: SMS Confirmation -->
+  <div class="step" id="step5">
+    <h2>💳 Confirm & Send SMS</h2>
+    <h3 id="summary"></h3>
+    <input type="text" id="phone" placeholder="Mobile Number (+91XXXXXXXXXX)">
+    <button onclick="sendSMS()">📩 Send Confirmation SMS</button>
+    <div class="nav">
+      <button class="back" onclick="prev()">⬅ Back</button>
+      <button onclick="next()">Next ➡</button>
+    </div>
+  </div>
+
+  <!-- STEP 6: Thank You -->
+  <div class="step" id="step6">
+    <h2>🎉 Thank You!</h2>
+    <p>Your booking is confirmed! 🍽️</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
